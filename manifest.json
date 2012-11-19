@@ -1,0 +1,14 @@
+{
+  "name": "Fiddle++",
+  "version": "0.0.1",
+  "manifest_version" : 2,
+  "description": "Improvements to JSFiddle",
+  "content_scripts": [
+    {
+      "matches": ["http://jsfiddle.net/"],
+      "js": ["jquery.js", "content.js", "zen_textarea.min.js"],
+      "all_frames": true
+    }
+  ]//,
+  //"background_page": "background.html"
+}

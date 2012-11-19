@@ -1,0 +1,74 @@
+
+I. Presentation
+
+
+	1 - Stand alone webpage
+	
+2 - Cool logo
+	
+3 - Videos of inovative usage
+	
+4 - Website would point to extension in Chrome store
+
+
+II. Editor
+	
+
+1 - Emmet shorthand (http://docs.emmet.io/)
+	
+2 - syntax highlighting and intellisense (http://mdk-photo.com/editor/)
+
+	3 - live update (like codepen)
+	
+4 - free anonomous hosting (http://pastehtml.com/help/bookmarklet)
+
+	5 - full browser view pop out
+	
+6 - github synch option
+
+	7 - easy download of code
+	
+8 - ability to browse + rate different fiddles (like codepen)
+	
+9 - Some dark themes
+	
+10 - Real time colaoboration (http://titanpad.com/)
+	
+11 - Stackoverflow integration
+
+
+III. Package manager (for extra client-side functionality) <-- Not fully thought out
+
+
+	1 - Openkeyval (http://openkeyval.org/)
+	
+2 - pubnub (http://www.pubnub.com/account-javascript-api-include)
+	
+3 - tropo (http://blog.tropo.com/2010/10/18/javascript-sms-api/)
+	
+4 - email (https://www.mailerjs.com/)
+	
+5 - disqus (http://disqus.com/)
+
+	6 - yql (http://james.padolsey.com/javascript/using-yql-with-jsonp/)
+
+	7 - gumroad (https://gumroad.com/api/webhooks)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
