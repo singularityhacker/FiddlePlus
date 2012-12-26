@@ -6,9 +6,10 @@
   "content_scripts": [
     {
       "matches": ["http://jsfiddle.net/"],
-      "js": ["jquery.js", "content.js", "zen_textarea.min.js"],
+      "js": ["jquery.js", "content.js"],
       "all_frames": true
     }
-  ]//,
+  ],
+  "web_accessible_resources" : ["/js/emmet.js"]
   //"background_page": "background.html"
 }
