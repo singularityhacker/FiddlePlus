@@ -71,13 +71,14 @@
         regTag = /(\w+)/i,  //finds only the first word, must check for now word
         regId = /[^\[]#((\-|[\w])+)/i,   //finds id name
         regTagNotContent = /((([#\.]?[\w-]+)?(\[([\w!]+(="([^"]|\\")+")? {0,})+\])?)+)/i,
-        regClasses = /(\.[\w-]+)(?=([^\]]*\][^\]]*\])*[^\]]*\.[\w-]+)/gi,    //finds all classes
+        regClasses = /(\.[\w-]+)/gi,    //finds all classes
         regClass = /\.([\w-]+)/i,   //finds the class name of each class
 
         //finds reference objects
         regReference = /(@[\w$_][\w$_\d]+)/i,
 
         //finds attributes within '[' and ']' of type name or name="value"
+        regRemoveAttrs = /([\[].*[\]])/gi, //matches brackets and everything within
         regAttrDfn = /(\[([(\w|\-)!]+(="([^"]|\\")+")? {0,})+\])/i,
         regAttrs = /([(\w|\-)!]+(="([^"]|\\")+")?)/gi,  //finds each attribute
         regAttr = /([(\w|\-)!]+)(="(([^"]|\\")+)")?/i,  //finds individual attribute and value
@@ -377,7 +378,26 @@
      * parses classes out of a single css element definition
      * returns as a space delimited string of classes
      */
+    function removeDigit(zenText){
+        while(/[0-9].*/.exec(zenText)){
+            zenText = zenText.substr(1);
+        }
+        return zenText;
+    }
     function parseClasses(ZenBlock) {
+        //strip attributes from string
+        //Would prefer to use regex here, but cannot get a working one
+        if(ZenBlock.indexOf('[')){
+            ZenBlock=ZenBlock.split('[')[0];
+        }
+        if(ZenBlock.indexOf('*') > 0){
+            var zenString = '';
+            var tempZenBlock = ZenBlock.split('*');
+            for(i=0; i<tempZenBlock.length; i++){
+                zenString += removeDigit(tempZenBlock[i]);
+            }    
+            ZenBlock = zenString;
+        }
         ZenBlock = ZenBlock.match(regTagNotContent)[0];
         if(ZenBlock.search(regClasses) == -1)
             return undefined;
@@ -561,7 +581,15 @@ function showCaretPos() {
         if (word != null) {
             HTMlString=$.zc(word);
             console.log(HTMlString);
-            return HTMlString[0].outerHTML;
+            if(HTMlString.length < 1){
+                return HTMlString[0].outerHTML;
+            }else{
+                var returnString = '';
+                for(i=0;i<HTMlString.length; i++){
+                    returnString += HTMlString[i].outerHTML;
+                }
+                return returnString;
+            }
         }
     }
 
